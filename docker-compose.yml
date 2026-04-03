@@ -1,0 +1,17 @@
+services:
+  bilko-relay:
+    build: .
+    container_name: bilko-relay
+    env_file:
+      - .env
+    ports:
+      - "31312:31312"
+    expose:
+      - 31312
+    restart: unless-stopped
+    networks:
+      - web
+
+networks:
+  web:
+    external: true
